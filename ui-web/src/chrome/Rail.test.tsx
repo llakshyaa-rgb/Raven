@@ -118,7 +118,9 @@ describe('the rail', () => {
     const pick = vi.spyOn(imported, 'pick').mockImplementation(() => {})
     render()
     const nav = document.querySelector('nav.rail-nav') as HTMLElement
-    expect(Array.from(nav.children).map((b) => b.id)).toEqual(['newBtn', 'agentsBtn', 'knowledgeBtn', 'importedBtn'])
+    expect(Array.from(nav.children).map((b) => b.id || (b as HTMLElement).className)).toEqual([
+      'newBtn', 'agentsBtn', 'knowledgeBtn', 'importedBtn', 'rail-orbit-modules',
+    ])
     const button = el('importedBtn') as HTMLButtonElement
     const idle = button.textContent
     expect(idle).not.toBe('')
@@ -134,6 +136,24 @@ describe('the rail', () => {
     expect(button.getAttribute('aria-busy')).toBe(null)
     expect(button.textContent).toBe(idle)
     pick.mockRestore()
+  })
+
+  it('shows safe, direct links to the three Orbit specialist repositories', () => {
+    render()
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.rail-orbit-link'))
+    expect(links.map((link) => link.textContent?.replace('↗', '').trim())).toEqual([
+      'M EverOS', 'B Browser Use', 'E ECC',
+    ])
+    expect(links.map((link) => link.href)).toEqual([
+      'https://github.com/llakshyaa-rgb/EverOS',
+      'https://github.com/llakshyaa-rgb/browser-use',
+      'https://github.com/llakshyaa-rgb/ECC',
+    ])
+    for (const link of links) {
+      expect(link.target).toBe('_blank')
+      expect(link.rel).toContain('noopener')
+      expect(link.rel).toContain('noreferrer')
+    }
   })
 
   it('renders a literal in every element that carried one', () => {
