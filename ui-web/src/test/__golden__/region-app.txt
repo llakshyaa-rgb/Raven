@@ -55,6 +55,20 @@ div.app
           path
           path
         span
+      div.rail-orbit-modules
+        div.rail-orbit-heading
+        a.rail-orbit-link
+          span.rail-orbit-mark
+          span.rail-orbit-name
+          span.rail-orbit-open
+        a.rail-orbit-link
+          span.rail-orbit-mark
+          span.rail-orbit-name
+          span.rail-orbit-open
+        a.rail-orbit-link
+          span.rail-orbit-mark
+          span.rail-orbit-name
+          span.rail-orbit-open
     div#findBox.find
       span.ic
         svg
