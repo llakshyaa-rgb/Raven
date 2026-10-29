@@ -6,3 +6,81 @@
  * classes still live in page.css under check-class-namespace's pinned
  * allowance; a class the domain introduces goes here, prefixed.
  */
+
+
+/* Orbit's temporary module launcher: quiet enough to keep Raven's rail
+   familiar, but visibly grouped so the specialist repositories are one tap away. */
+.rail-orbit-modules {
+  margin: 8px 8px 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  gap: 3px;
+}
+.rail-orbit-heading {
+  padding: 0 8px 5px;
+  color: var(--rail-quiet);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .09em;
+}
+.rail-orbit-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  height: 31px;
+  padding: 0 8px;
+  border-radius: 8px;
+  color: var(--rail-ink);
+  text-decoration: none;
+  font-size: var(--fs-rail);
+  transition: background .12s ease, color .12s ease;
+}
+.rail-orbit-link:hover,
+.rail-orbit-link:focus-visible {
+  background: var(--rail-hover);
+  color: var(--rail-ink-on);
+  outline: none;
+}
+.rail-orbit-link:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--amber);
+}
+.rail-orbit-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+}
+.rail-orbit-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rail-orbit-open {
+  margin-left: auto;
+  color: var(--faint);
+  font-size: 12px;
+  opacity: 0;
+  transform: translate(-2px, 2px);
+  transition: opacity .12s ease, transform .12s ease;
+}
+.rail-orbit-link:hover .rail-orbit-open,
+.rail-orbit-link:focus-visible .rail-orbit-open {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-orbit-link,
+  .rail-orbit-open { transition: none; }
+}
