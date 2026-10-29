@@ -158,6 +158,24 @@ function RailNav(): JSX.Element {
         </button>
       ))}
       <ImportButton />
+      <div className="rail-orbit-modules" aria-label="Orbit modules">
+        <div className="rail-orbit-heading">ORBIT MODULES</div>
+        <a className="rail-orbit-link" href="https://github.com/llakshyaa-rgb/EverOS" target="_blank" rel="noopener noreferrer" title="Open EverOS repository — memory engine">
+          <span className="rail-orbit-mark" aria-hidden="true">M</span>
+          <span className="rail-orbit-name">EverOS</span>
+          <span className="rail-orbit-open" aria-hidden="true">↗</span>
+        </a>
+        <a className="rail-orbit-link" href="https://github.com/llakshyaa-rgb/browser-use" target="_blank" rel="noopener noreferrer" title="Open Browser Use repository — browser automation">
+          <span className="rail-orbit-mark" aria-hidden="true">B</span>
+          <span className="rail-orbit-name">Browser Use</span>
+          <span className="rail-orbit-open" aria-hidden="true">↗</span>
+        </a>
+        <a className="rail-orbit-link" href="https://github.com/llakshyaa-rgb/ECC" target="_blank" rel="noopener noreferrer" title="Open ECC repository — coding skills and rules">
+          <span className="rail-orbit-mark" aria-hidden="true">E</span>
+          <span className="rail-orbit-name">ECC</span>
+          <span className="rail-orbit-open" aria-hidden="true">↗</span>
+        </a>
+      </div>
     </nav>
   )
 }
